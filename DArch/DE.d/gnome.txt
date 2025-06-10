@@ -1,0 +1,15 @@
+dconf-editor
+gdm
+gnome-applets
+gnome-browser-connector
+gnome-control-center
+gnome-menus
+gnome-nettool
+gnome-packagekit
+gnome-panel
+gnome-settings-daemon
+gnome-shell-extension-dash-to-panel
+gnome-shell-extensions
+gnome-tweaks
+kitty
+nautilus

@@ -1,0 +1,17 @@
+dolphin
+dunst
+hypridle
+hyprland
+hyprland-protocols
+hyprlock
+hyprpaper
+hyprpolkitagent
+hyprsunset
+kitty
+nano
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+waybar
+wofi
+xdg-dekstop-portal-hyprland
