@@ -64,7 +64,7 @@ pkg_network="bind dhcpcd iw iwd network-manager-applet wireless_tools wireless-r
 
 pkg_editor="leafpad micro nano vim"
 
-pkg_boredom="aircrack-ng hashcat hcxdumptool hcxtools hydra john macchanger"
+pkg_boredom="aircrack-ng cowpatty hashcat hcxdumptool hcxtools hydra john macchanger"
 
 pkg_fonts="gnu-free-fonts ttf-dejavu"
 
