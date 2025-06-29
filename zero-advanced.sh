@@ -60,7 +60,7 @@ pkg_dev="base-devel devtools clang llvm rust"
 
 pkg_shell="bash-completion zsh"
 
-pkg_network="bind dhcpcd iw iwd network-manager-applet wireless_tools wireless-regdb"
+pkg_network="bind dhcpcd iw iwd netscanner network-manager-applet wireless_tools wireless-regdb"
 
 pkg_editor="leafpad micro nano vim"
 
