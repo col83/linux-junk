@@ -62,9 +62,9 @@ pkg_shell="bash-completion zsh"
 
 pkg_network="bind dhcpcd iw iwd netscanner network-manager-applet wireless_tools wireless-regdb"
 
-pkg_editor="leafpad micro nano vim"
+pkg_editor="leafpad micro nano"
 
-pkg_boredom="aircrack-ng cowpatty hashcat hcxdumptool hcxtools hydra john macchanger"
+pkg_boredom="aircrack-ng cowpatty hashcat hcxdumptool hcxtools hydra macchanger"
 
 pkg_fonts="gnu-free-fonts ttf-dejavu"
 
