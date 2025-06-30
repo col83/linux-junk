@@ -11,7 +11,7 @@ ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 timedatectl set-ntp true
 hwclock --systohc
 
-echo 'fucker' > /etc/hostname
+echo 'arch' > /etc/hostname
 
 ##################################################################################################
 
@@ -48,8 +48,8 @@ exec_visudo_edit() {
 
 if [[ ${VISUDO_EDIT} = y ]]; then
     EDITOR=nano visudo
-    echo
     exec_visudo_edit
+    echo
 fi
 
 ## regenerate locales ############################################################################
@@ -110,7 +110,7 @@ if [[ ${NET_FIRST_CONFIG} = y ]]; then
     systemctl enable dhcpcd
     systemctl enable NetworkManager
     systemctl enable wpa_supplicant.service
-	systemctl enable iwd.service
+    systemctl enable iwd.service
 
 fi
 
@@ -123,8 +123,8 @@ if [[ ${INITRAMFS_REGEN} = y ]]; then
     read -p 'Edit initcpio files ? (y/n): ' INITCPIO_FILES_EDIT
     
     if [[ ${INITCPIO_FILES_EDIT} = y ]]; then
-            nano /etc/mkinitcpio.conf
-            nano /etc/mkinitcpio.d/linux-*.preset
+        nano /etc/mkinitcpio.conf
+        nano /etc/mkinitcpio.d/linux-*.preset
     fi
 
 
@@ -140,35 +140,32 @@ fi
 
 bootloader_grub() {
 
-    #nano /etc/default/grub
-
-    if [[ ! -d /boot/efi/grub/ ]]; then
-        grub-install --efi-directory=/boot/
-    fi
-
+if [[ ! -d /boot/efi/grub/ ]]; then
+    grub-install --efi-directory=/boot/
     grub-mkconfig -o /boot/grub/grub.cfg
+fi
 	
-	read -p 'Edit grub bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
-    if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
-        nano /boot/grub/grub.cfg
-    fi
+read -p 'Edit grub bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
+if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
+    nano /boot/grub/grub.cfg
+fi
 
 }
 
 bootloader_systemd() {
 
-    bootctl install
+bootctl install
 
-    if [[ -f /boot/efi/loader/loader.conf ]]; then
-        cp /usr/share/systemd/bootctl/loader.conf /boot/efi/loader/
-        cp /usr/share/systemd/bootctl/arch.conf /boot/efi/loader/entries/
-    fi
+if [[ -f /boot/efi/loader/loader.conf ]]; then
+    cp /usr/share/systemd/bootctl/loader.conf /boot/efi/loader/
+    cp /usr/share/systemd/bootctl/arch.conf /boot/efi/loader/entries/
+fi
 
-    read -p 'Edit systemd bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
-    if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
-        nano /boot/efi/loader/loader.conf
-        nano /boot/efi/loader/entries/arch.conf
-    fi
+read -p 'Edit systemd bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
+if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
+    nano /boot/efi/loader/loader.conf
+    nano /boot/efi/loader/entries/arch.conf
+fi
 
 }
 
@@ -214,9 +211,9 @@ if [[ ${DE_INSTALL} = y ]]; then
 
     fi
 	
-	if [[ ${DE_SELECT} = 3 ]]; then
+    if [[ ${DE_SELECT} = 3 ]]; then
 
-        sudo pacman -S --needed cosmic || exit 1 && echo 'error. try again'
+    sudo pacman -S --needed cosmic || exit 1 && echo 'error. try again'
 
     fi
 
