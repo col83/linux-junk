@@ -44,16 +44,12 @@ fi
 echo
 read -p 'edit visudo ? (y/n): ' VISUDO_EDIT
 
-visudo_edit() {
-
-    if [[ -f /bin/micro ]]; then
-        EDITOR=nano visudo
-    fi
-}
+exec_visudo_edit() {
 
 if [[ ${VISUDO_EDIT} = y ]]; then
+    EDITOR=nano visudo
     echo
-    visudo_edit
+    exec_visudo_edit
 fi
 
 ## regenerate locales ############################################################################
