@@ -44,18 +44,16 @@ fi
 echo
 read -p 'edit visudo ? (y/n): ' VISUDO_EDIT
 
-RUN_VISUDO_EDIT() {
+visudo_edit() {
 
     if [[ -f /bin/micro ]]; then
-        EDITOR=micro visudo
-    else
         EDITOR=nano visudo
     fi
 }
 
 if [[ ${VISUDO_EDIT} = y ]]; then
     echo
-    RUN_VISUDO_EDIT
+    visudo_edit
 fi
 
 ## regenerate locales ############################################################################
@@ -129,13 +127,8 @@ if [[ ${INITRAMFS_REGEN} = y ]]; then
     read -p 'Edit initcpio files ? (y/n): ' INITCPIO_FILES_EDIT
     
     if [[ ${INITCPIO_FILES_EDIT} = y ]]; then
-        if [[ -f /bin/micro ]]; then
-            micro /etc/mkinitcpio.conf
-            micro /etc/mkinitcpio.d/linux*.preset
-        else
             nano /etc/mkinitcpio.conf
             nano /etc/mkinitcpio.d/linux-*.preset
-        fi
     fi
 
 
@@ -161,11 +154,7 @@ bootloader_grub() {
 	
 	read -p 'Edit grub bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
     if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
-        if [[ -f /bin/micro ]]; then
-            micro /boot/grub/grub.cfg
-        else
-            nano /boot/grub/grub.cfg
-        fi
+        nano /boot/grub/grub.cfg
     fi
 
 }
@@ -181,13 +170,8 @@ bootloader_systemd() {
 
     read -p 'Edit systemd bootloader conf ? (y/n): ' EDIT_BOOTCTL_CONF
     if [[ ${EDIT_BOOTCTL_CONF} = y ]]; then
-        if [[ -f /bin/micro ]]; then
-            micro /boot/efi/loader/loader.conf
-            micro /boot/efi/loader/entries/arch.conf
-        else
-            nano /boot/efi/loader/loader.conf
-            nano /boot/efi/loader/entries/arch.conf
-        fi
+        nano /boot/efi/loader/loader.conf
+        nano /boot/efi/loader/entries/arch.conf
     fi
 
 }
