@@ -60,11 +60,11 @@ pkg_dev="base-devel devtools clang llvm rust"
 
 pkg_shell="bash-completion zsh"
 
-pkg_network="bind dhcpcd iw iwd netscanner network-manager-applet wireless_tools wireless-regdb"
+pkg_network="bind dhcpcd dnscrypt-proxy dnsmasq iw iwd netscanner network-manager-applet wireless_tools wireless-regdb"
 
-pkg_editor="leafpad micro nano"
+pkg_editor="leafpad nano"
 
-pkg_boredom="aircrack-ng cowpatty hashcat hcxdumptool hcxtools hydra macchanger"
+pkg_boredom="aircrack-ng cowpatty hashcat hcxdumptool hcxtools hydra macchanger wireshark-cli"
 
 pkg_fonts="gnu-free-fonts ttf-dejavu"
 
