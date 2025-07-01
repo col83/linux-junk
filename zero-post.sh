@@ -44,15 +44,9 @@ fi
 echo
 read -p 'edit visudo ? (y/n): ' VISUDO_EDIT
 
-exec_visudo_edit() {
-
 if [[ ${VISUDO_EDIT} = y ]]; then
     EDITOR=nano visudo
-    exec_visudo_edit
-    echo
 fi
-
-}
 
 ## regenerate locales ############################################################################
 
