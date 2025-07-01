@@ -200,7 +200,7 @@ if [[ ${DE_INSTALL} = y ]]; then
     pacman -Syy
 
     echo
-    echo '(1) gnome (2) hyprland (3) cosmic'
+    echo '(1) gnome (minimal) (2) hyprland (3) cosmic'
     read -p 'Select DE: ' DE_SELECT
 
     if [[ ${DE_SELECT} = 1 ]]; then
