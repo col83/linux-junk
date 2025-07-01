@@ -102,9 +102,16 @@ if [[ ${NET_FIRST_CONFIG} = y ]]; then
     echo 'EnableIPv6=false' >> /etc/iwd/main.conf
     echo 'NameResolvingService=systemd' >> /etc/iwd/main.conf
     echo '[BandModifier2_4GHz=1.0]' >> /etc/iwd/main.conf
-    echo '[BandModifier5GHz=0.0]' >> /etc/iwd/main.conf ## by default 5GHz is off
-    echo '[BandModifier6GHz=0.0]' >> /etc/iwd/main.conf ## by default 6GHz is off
+    echo '[BandModifier5GHz=1.0]' >> /etc/iwd/main.conf
+    echo '[BandModifier6GHz=0.0]' >> /etc/iwd/main.conf
 
+    ### network manager config for dnscrypt-proxy
+    nmcli connection modify eth0 ipv4.dns 127.0.0.53
+    nmcli connection modify eth0 ipv4.ignore-auto-dns yes
+    nmcli connection modify wlan0 ipv4.dns 127.0.0.53
+    nmcli connection modify wlan0 ipv4.ignore-auto-dns yes
+
+    echo 'server=127.0.0.53' > /etc/NetworkManager/dnsmasq.d/custom.conf
 
     ### enable systemd services
     systemctl enable dhcpcd
@@ -184,6 +191,7 @@ if [[ ${BOOTLOADER_INSTALL} = y ]]; then
         echo
         bootloader_grub
     fi
+
 fi
 
 ## desktop enviroment ############################################################################
